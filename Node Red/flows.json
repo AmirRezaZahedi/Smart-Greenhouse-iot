@@ -1,0 +1,5926 @@
+[
+    {
+        "id": "4b388c0890a0c8a0",
+        "type": "tab",
+        "label": "Soil Moisture",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "dadd6438b8733412",
+        "type": "tab",
+        "label": "Air Temperature",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "34aadf24fce843a3",
+        "type": "tab",
+        "label": "Air Humidity",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "4ea94c24db3e06c9",
+        "type": "tab",
+        "label": "Ambient Light",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "8774b91761878e43",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "37e23b3e6f9a9d8e",
+        "type": "serial-port",
+        "name": "mcu",
+        "serialport": "COM6",
+        "serialbaud": "115200",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "10000"
+    },
+    {
+        "id": "f824416e1a412806",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 100,
+                "sy": 100,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 2,
+                "py": 2
+            }
+        }
+    },
+    {
+        "id": "906e3c6177eabd49",
+        "type": "mqtt-broker",
+        "name": "Sender Server",
+        "broker": "test.mosquitto.org",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "99f5026d45d8fa24",
+        "type": "mqtt-broker",
+        "name": "Receiver Server",
+        "broker": "broker.hivemq.com",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "c61d694b23539f44",
+        "type": "ui_tab",
+        "name": "Soil Moisture",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "a62544b215fcf46d",
+        "type": "ui_tab",
+        "name": "Air Humidity",
+        "icon": "dashboard",
+        "order": 3,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "88d9e6f647e9d3f4",
+        "type": "ui_tab",
+        "name": "Air Temperature",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "27731b10dcda2da1",
+        "type": "ui_group",
+        "name": "Cucumber",
+        "tab": "c61d694b23539f44",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": true
+    },
+    {
+        "id": "4281e10c9043b775",
+        "type": "ui_group",
+        "name": "Tomato",
+        "tab": "c61d694b23539f44",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": true
+    },
+    {
+        "id": "aaaab3b505296e69",
+        "type": "ui_group",
+        "name": "Cucumber",
+        "tab": "a62544b215fcf46d",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": true
+    },
+    {
+        "id": "108c3fee09587cc4",
+        "type": "ui_group",
+        "name": "Tomato",
+        "tab": "a62544b215fcf46d",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": true
+    },
+    {
+        "id": "ab6ca969e5450998",
+        "type": "ui_group",
+        "name": "Cucumber",
+        "tab": "88d9e6f647e9d3f4",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": true
+    },
+    {
+        "id": "70629d31b7af9210",
+        "type": "ui_group",
+        "name": "Tomato",
+        "tab": "88d9e6f647e9d3f4",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": true
+    },
+    {
+        "id": "49ac18573fde97f0",
+        "type": "ui_tab",
+        "name": "Ambient Light",
+        "icon": "dashboard",
+        "order": 4,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "a67d6f2da189a098",
+        "type": "ui_group",
+        "name": "Tomato",
+        "tab": "49ac18573fde97f0",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": true
+    },
+    {
+        "id": "615c54491b6ec5e7",
+        "type": "ui_group",
+        "name": "Cucumber",
+        "tab": "49ac18573fde97f0",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": true
+    },
+    {
+        "id": "996f7f73a4b88ef2",
+        "type": "global-config",
+        "name": "global-config",
+        "env": []
+    },
+    {
+        "id": "661c3678fe64e948",
+        "type": "mqtt-broker",
+        "name": "broker.emqx.io",
+        "broker": "broker.emqx.io",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "e3fa3322af551f8a",
+        "type": "MySQLdatabase",
+        "name": "IOT",
+        "host": "127.0.0.1",
+        "port": "3306",
+        "db": "IOT",
+        "tz": "",
+        "charset": "UTF8"
+    },
+    {
+        "id": "group-id",
+        "type": "ui_group",
+        "name": "Date Selection",
+        "tab": "",
+        "order": 1,
+        "disp": true,
+        "width": "6"
+    },
+    {
+        "id": "db-config-id",
+        "type": "MySQLdatabase",
+        "host": "localhost",
+        "port": "3306",
+        "db": "your_database",
+        "tz": ""
+    },
+    {
+        "id": "dfb4a60f.d788f8",
+        "type": "ui_group",
+        "name": "Data Export",
+        "tab": "",
+        "order": 1,
+        "disp": true,
+        "width": "12"
+    },
+    {
+        "id": "f007dabdb4f7abb5",
+        "type": "ui_group",
+        "name": "Cucumber",
+        "tab": "",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": true
+    },
+    {
+        "id": "eb30b3f8ed4ca1c6",
+        "type": "mqtt in",
+        "z": "4b388c0890a0c8a0",
+        "name": "Soil Moisture",
+        "topic": "soilMoistureCucumber",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "99f5026d45d8fa24",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 240,
+        "wires": [
+            [
+                "94a65d9a8b840fbe",
+                "5eeaa84a4c66eabe",
+                "6c991e1dcd90ac29",
+                "4dd084b53681c734",
+                "f27ff17727cd3d2a"
+            ]
+        ]
+    },
+    {
+        "id": "94a65d9a8b840fbe",
+        "type": "debug",
+        "z": "4b388c0890a0c8a0",
+        "name": "Check Soil Moisture Cucumber",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 570,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "40db06bdc96d1b4c",
+        "type": "ui_chart",
+        "z": "4b388c0890a0c8a0",
+        "name": "Cucumber Chart",
+        "group": "27731b10dcda2da1",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "Soil Moisture Cucumber Chart",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "100",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#31a031",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "x": 980,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6c991e1dcd90ac29",
+        "type": "function",
+        "z": "4b388c0890a0c8a0",
+        "name": "Convert Data Cucumber",
+        "func": "// function map(value, fromLow, fromHigh, toLow, toHigh) {\n//     return (value - fromLow) * (toHigh - toLow) / (fromHigh - fromLow) + toLow;\n// }\n\nmsg.payload = Number(msg.payload);\n\n\n// msg.payload = map(msg.payload, 350, 1023, 100, 0); \n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 550,
+        "y": 240,
+        "wires": [
+            [
+                "40db06bdc96d1b4c",
+                "e8be410de4d72ea3"
+            ]
+        ]
+    },
+    {
+        "id": "036d48627e20127b",
+        "type": "ui_text",
+        "z": "4b388c0890a0c8a0",
+        "group": "27731b10dcda2da1",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "Cucumber Text",
+        "label": "Soil Moisture Cucumber",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "x": 980,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "5eeaa84a4c66eabe",
+        "type": "function",
+        "z": "4b388c0890a0c8a0",
+        "name": "Investigating the quality of soil moisture Cucumber",
+        "func": "msg.payload = Number(msg.payload);\n\nif (msg.payload  > 75 && msg.payload <= 100) {\n    msg.payload  = \"Status: Sensor in Water\";\n    msg.topic = \"Warning Water\";\n} else if (msg.payload >= 50 && msg.payload < 75) {\n    msg.payload = \"Status: Soil moisture is perfect (humid)\";\n} else if (msg.payload >= 5 && msg.payload < 50) {\n    msg.payload = \"Status: Soil moisture is Dry\";\n    msg.topic = \"Warning Dry\";\n} else {\n    msg.payload = \"Status: Sensor is not in the soil or sensor is disconnected.\";\n    msg.topic = \"Error\";\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 300,
+        "wires": [
+            [
+                "036d48627e20127b",
+                "0c558027df8f27d4"
+            ]
+        ]
+    },
+    {
+        "id": "e8be410de4d72ea3",
+        "type": "ui_gauge",
+        "z": "4b388c0890a0c8a0",
+        "name": "Cucumber Gauge",
+        "group": "27731b10dcda2da1",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Soil Moisture Cucumber Gauge",
+        "label": "percent",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 990,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "97c6dab74a3c0a84",
+        "type": "mqtt in",
+        "z": "4b388c0890a0c8a0",
+        "name": "Soil Moisture",
+        "topic": "soilMoistureTomato",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "99f5026d45d8fa24",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 1720,
+        "wires": [
+            [
+                "be435ef8185175c4",
+                "0ae366a7e5778ba6",
+                "f771eb82bba3ba20",
+                "c6f5e05c17222184"
+            ]
+        ]
+    },
+    {
+        "id": "be435ef8185175c4",
+        "type": "debug",
+        "z": "4b388c0890a0c8a0",
+        "name": "Check Soil Moisture Tomato",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 560,
+        "y": 1640,
+        "wires": []
+    },
+    {
+        "id": "7cd56abb560a857e",
+        "type": "ui_chart",
+        "z": "4b388c0890a0c8a0",
+        "name": "Tomato Chart",
+        "group": "4281e10c9043b775",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "Soil Moisture Tomato Chart",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "100",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#31a031",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "x": 980,
+        "y": 1720,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f771eb82bba3ba20",
+        "type": "function",
+        "z": "4b388c0890a0c8a0",
+        "name": "Convert Data Tomato",
+        "func": "// function map(value, fromLow, fromHigh, toLow, toHigh) {\n//     return (value - fromLow) * (toHigh - toLow) / (fromHigh - fromLow) + toLow;\n// }\n\nmsg.payload = Number(msg.payload);\n\n\n// msg.payload = map(msg.payload, 350, 1023, 100, 0); \n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 1720,
+        "wires": [
+            [
+                "7cd56abb560a857e",
+                "8adc84f89669a9d7"
+            ]
+        ]
+    },
+    {
+        "id": "7aa7c4224ffbc684",
+        "type": "ui_text",
+        "z": "4b388c0890a0c8a0",
+        "group": "4281e10c9043b775",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "Tomato Text",
+        "label": "Soil Moisture Tomato",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "x": 970,
+        "y": 1780,
+        "wires": []
+    },
+    {
+        "id": "0ae366a7e5778ba6",
+        "type": "function",
+        "z": "4b388c0890a0c8a0",
+        "name": "Investigating the quality of soil moisture Tomato",
+        "func": "msg.payload = Number(msg.payload);\n\nif (msg.payload > 75 && msg.payload <= 100) {\n    msg.payload = \"Status: Sensor in Water\";\n    msg.topic = \"Warning Water\";\n} else if (msg.payload >= 50 && msg.payload < 75) {\n    msg.payload = \"Status: Soil moisture is perfect (humid)\";\n} else if (msg.payload >= 20 && msg.payload < 50) {\n    msg.payload = \"Status: Soil moisture is Dry\";\n    msg.topic = \"Warning Dry\";\n} else {\n    msg.payload = \"Status: Sensor is not in the soil or sensor is disconnected.\";\n    msg.topic = \"Error\";\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 1780,
+        "wires": [
+            [
+                "7aa7c4224ffbc684",
+                "e2d606253603b825"
+            ]
+        ]
+    },
+    {
+        "id": "8adc84f89669a9d7",
+        "type": "ui_gauge",
+        "z": "4b388c0890a0c8a0",
+        "name": "Tomato Gauge",
+        "group": "4281e10c9043b775",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Soil Moisture Tomato Gauge",
+        "label": "percent",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 980,
+        "y": 1640,
+        "wires": []
+    },
+    {
+        "id": "dd6ee6e270223dbb",
+        "type": "ui_switch",
+        "z": "4b388c0890a0c8a0",
+        "name": "Activate Tomato irrigation",
+        "label": "Activate Tomato irrigation",
+        "tooltip": "",
+        "group": "4281e10c9043b775",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "1",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "2",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "x": 290,
+        "y": 2140,
+        "wires": [
+            [
+                "799d1511a28492d6",
+                "533403010954c860"
+            ]
+        ]
+    },
+    {
+        "id": "659c637432d7c94d",
+        "type": "ui_dropdown",
+        "z": "4b388c0890a0c8a0",
+        "name": "Selecting Irrigation Percentage",
+        "label": "Selecting Tomato Irrigation Percentage",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "4281e10c9043b775",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "Inactive",
+                "value": "0",
+                "type": "str"
+            },
+            {
+                "label": "60%",
+                "value": "60",
+                "type": "str"
+            },
+            {
+                "label": "70%",
+                "value": "70",
+                "type": "str"
+            },
+            {
+                "label": "80%",
+                "value": "80",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 210,
+        "y": 1980,
+        "wires": [
+            [
+                "4cfd19c7b23ef808",
+                "2772b94da5fe4c45"
+            ]
+        ]
+    },
+    {
+        "id": "2772b94da5fe4c45",
+        "type": "mqtt out",
+        "z": "4b388c0890a0c8a0",
+        "name": "Watering Systems Percent",
+        "topic": "TomatoIrrigationPercent",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "99f5026d45d8fa24",
+        "x": 660,
+        "y": 1980,
+        "wires": []
+    },
+    {
+        "id": "4cfd19c7b23ef808",
+        "type": "debug",
+        "z": "4b388c0890a0c8a0",
+        "name": "Check Selecting Tomato Irrigation Percentage",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 580,
+        "y": 1880,
+        "wires": []
+    },
+    {
+        "id": "799d1511a28492d6",
+        "type": "mqtt out",
+        "z": "4b388c0890a0c8a0",
+        "name": "Watering Systems",
+        "topic": "TomatoIrrigation",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "99f5026d45d8fa24",
+        "x": 630,
+        "y": 2140,
+        "wires": []
+    },
+    {
+        "id": "533403010954c860",
+        "type": "debug",
+        "z": "4b388c0890a0c8a0",
+        "name": "Check Activate Tomato irrigation",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 580,
+        "y": 2260,
+        "wires": []
+    },
+    {
+        "id": "61aa35841d32da47",
+        "type": "ui_switch",
+        "z": "4b388c0890a0c8a0",
+        "name": "Activate Cucumber irrigation",
+        "label": "Activate Cucumber irrigation",
+        "tooltip": "",
+        "group": "27731b10dcda2da1",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "1",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "2",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "x": 200,
+        "y": 1000,
+        "wires": [
+            [
+                "7ac18d6b3d6843c9",
+                "02780c4adca3c915"
+            ]
+        ]
+    },
+    {
+        "id": "4184c43ed2b9c69e",
+        "type": "ui_dropdown",
+        "z": "4b388c0890a0c8a0",
+        "name": "Selecting Irrigation Percentage",
+        "label": "Selecting Cucumber Irrigation Percentage",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "27731b10dcda2da1",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "Inactive",
+                "value": "0",
+                "type": "str"
+            },
+            {
+                "label": "60%",
+                "value": "60",
+                "type": "str"
+            },
+            {
+                "label": "70%",
+                "value": "70",
+                "type": "str"
+            },
+            {
+                "label": "80%",
+                "value": "80",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 250,
+        "y": 840,
+        "wires": [
+            [
+                "da52cc31c780b7bf",
+                "72e8475b77537d2b"
+            ]
+        ]
+    },
+    {
+        "id": "72e8475b77537d2b",
+        "type": "mqtt out",
+        "z": "4b388c0890a0c8a0",
+        "name": "Watering Systems Percent",
+        "topic": "CucumberIrrigationPercent",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "99f5026d45d8fa24",
+        "x": 700,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "da52cc31c780b7bf",
+        "type": "debug",
+        "z": "4b388c0890a0c8a0",
+        "name": "Check Selecting Cucumber Irrigation Percentage",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 620,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "7ac18d6b3d6843c9",
+        "type": "mqtt out",
+        "z": "4b388c0890a0c8a0",
+        "name": "Watering Systems",
+        "topic": "CucumberIrrigation",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "99f5026d45d8fa24",
+        "x": 530,
+        "y": 1000,
+        "wires": []
+    },
+    {
+        "id": "02780c4adca3c915",
+        "type": "debug",
+        "z": "4b388c0890a0c8a0",
+        "name": "Check Activate Cucumber irrigation",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 490,
+        "y": 1120,
+        "wires": []
+    },
+    {
+        "id": "23ae958990344ad1",
+        "type": "mysql",
+        "z": "4b388c0890a0c8a0",
+        "mydb": "e3fa3322af551f8a",
+        "name": "IOT Database",
+        "x": 780,
+        "y": 80,
+        "wires": [
+            [
+                "f4ac31b8e0f20a7c"
+            ]
+        ]
+    },
+    {
+        "id": "4dd084b53681c734",
+        "type": "function",
+        "z": "4b388c0890a0c8a0",
+        "name": "InsertValue",
+        "func": "var data = Number(msg.payload);\nvar dateTime = data.dateTime;\nvar type = \"Cucumber\";\n\nmsg.topic = \"INSERT INTO SoilMoisture (type, dateTime, value) VALUES ('\" + type + \"', NOW(), \" + data + \")\";\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 510,
+        "y": 80,
+        "wires": [
+            [
+                "23ae958990344ad1"
+            ]
+        ]
+    },
+    {
+        "id": "f4ac31b8e0f20a7c",
+        "type": "debug",
+        "z": "4b388c0890a0c8a0",
+        "name": "Insert Value In SoilMoisture Tabel (Cucumber)",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1180,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "b67ad7f0a628061d",
+        "type": "mysql",
+        "z": "4b388c0890a0c8a0",
+        "mydb": "e3fa3322af551f8a",
+        "name": "IOT Database",
+        "x": 690,
+        "y": 1540,
+        "wires": [
+            [
+                "c123f769cc9d3dea"
+            ]
+        ]
+    },
+    {
+        "id": "c6f5e05c17222184",
+        "type": "function",
+        "z": "4b388c0890a0c8a0",
+        "name": "InsertValue",
+        "func": "var data = Number(msg.payload);\nvar dateTime = data.dateTime;\nvar type = \"Tomato\";\n\nmsg.topic = \"INSERT INTO SoilMoisture VALUES (\" + type + \", NOW(), \" + data + \")\";\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 478.8125,
+        "y": 1539.6187744140625,
+        "wires": [
+            [
+                "b67ad7f0a628061d"
+            ]
+        ]
+    },
+    {
+        "id": "c123f769cc9d3dea",
+        "type": "debug",
+        "z": "4b388c0890a0c8a0",
+        "name": "Insert Value In SoilMoisture Tabel (Tomato)",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1000,
+        "y": 1540,
+        "wires": []
+    },
+    {
+        "id": "2e984afe15d46e40",
+        "type": "ui_form",
+        "z": "4b388c0890a0c8a0",
+        "name": "",
+        "label": "Select Date Range",
+        "group": "27731b10dcda2da1",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "Start Date",
+                "value": "startDate",
+                "type": "date",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "End Date",
+                "value": "endDate",
+                "type": "date",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "startDate": "",
+            "endDate": ""
+        },
+        "submit": "Get Csv File",
+        "cancel": "",
+        "topic": "",
+        "topicType": "str",
+        "splitLayout": false,
+        "x": 190,
+        "y": 640,
+        "wires": [
+            [
+                "7a55ba81571a4fb8"
+            ]
+        ]
+    },
+    {
+        "id": "36386e7fa04e0bd5",
+        "type": "file",
+        "z": "4b388c0890a0c8a0",
+        "name": "Write Output",
+        "filename": "H:\\Term-6\\Internet of things\\Project\\output.csv",
+        "filenameType": "str",
+        "appendNewline": false,
+        "createDir": false,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 1090,
+        "y": 640,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7a55ba81571a4fb8",
+        "type": "function",
+        "z": "4b388c0890a0c8a0",
+        "name": "Prepare Query",
+        "func": "var startDate = msg.payload.startDate;\nvar endDate = msg.payload.endDate;\n\nstartDate = new Date(startDate).toISOString().split('T')[0];\nendDate = new Date(endDate).toISOString().split('T')[0];\n\nmsg.topic = `SELECT * FROM SoilMoisture WHERE type = 'Cucumber' AND  dateTime BETWEEN '${startDate}' AND '${endDate}'`;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 640,
+        "wires": [
+            [
+                "36338492850f14e6"
+            ]
+        ]
+    },
+    {
+        "id": "36338492850f14e6",
+        "type": "mysql",
+        "z": "4b388c0890a0c8a0",
+        "mydb": "e3fa3322af551f8a",
+        "name": "IOT Database",
+        "x": 640,
+        "y": 640,
+        "wires": [
+            [
+                "fae2957b6d8799ba",
+                "52ecea81d36f93fe"
+            ]
+        ]
+    },
+    {
+        "id": "fae2957b6d8799ba",
+        "type": "csv",
+        "z": "4b388c0890a0c8a0",
+        "name": "",
+        "sep": ",",
+        "hdrin": true,
+        "hdrout": "all",
+        "multi": "one",
+        "ret": "\\r\\n",
+        "temp": "",
+        "skip": "0",
+        "strings": true,
+        "include_empty_strings": true,
+        "include_null_values": true,
+        "x": 860,
+        "y": 640,
+        "wires": [
+            [
+                "36386e7fa04e0bd5"
+            ]
+        ]
+    },
+    {
+        "id": "38ec6714e7ba5faf",
+        "type": "ui_form",
+        "z": "4b388c0890a0c8a0",
+        "name": "",
+        "label": "Select Date Range",
+        "group": "4281e10c9043b775",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "Start Date",
+                "value": "startDate",
+                "type": "date",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "End Date",
+                "value": "endDate",
+                "type": "date",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "startDate": "",
+            "endDate": ""
+        },
+        "submit": "Get Csv File",
+        "cancel": "",
+        "topic": "",
+        "topicType": "str",
+        "splitLayout": false,
+        "x": 230,
+        "y": 2340,
+        "wires": [
+            [
+                "facf8f08da25c94c"
+            ]
+        ]
+    },
+    {
+        "id": "f94d537048b46929",
+        "type": "file",
+        "z": "4b388c0890a0c8a0",
+        "name": "Write Output",
+        "filename": "H:\\Term-6\\Internet of things\\Project\\output.csv",
+        "filenameType": "str",
+        "appendNewline": false,
+        "createDir": false,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 1120,
+        "y": 2340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "facf8f08da25c94c",
+        "type": "function",
+        "z": "4b388c0890a0c8a0",
+        "name": "Prepare Query",
+        "func": "var startDate = msg.payload.startDate;\nvar endDate = msg.payload.endDate;\n\nstartDate = new Date(startDate).toISOString().split('T')[0];\nendDate = new Date(endDate).toISOString().split('T')[0];\n\nmsg.topic = `SELECT * FROM SoilMoisture WHERE type = 'Tomato' AND  dateTime BETWEEN '${startDate}' AND '${endDate}'`;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 2340,
+        "wires": [
+            [
+                "73daf41644dce979"
+            ]
+        ]
+    },
+    {
+        "id": "73daf41644dce979",
+        "type": "mysql",
+        "z": "4b388c0890a0c8a0",
+        "mydb": "e3fa3322af551f8a",
+        "name": "IOT Database",
+        "x": 670,
+        "y": 2340,
+        "wires": [
+            [
+                "97bc90bbcbba7b5a"
+            ]
+        ]
+    },
+    {
+        "id": "97bc90bbcbba7b5a",
+        "type": "csv",
+        "z": "4b388c0890a0c8a0",
+        "name": "",
+        "sep": ",",
+        "hdrin": true,
+        "hdrout": "all",
+        "multi": "one",
+        "ret": "\\r\\n",
+        "temp": "",
+        "skip": "0",
+        "strings": true,
+        "include_empty_strings": true,
+        "include_null_values": true,
+        "x": 890,
+        "y": 2340,
+        "wires": [
+            [
+                "f94d537048b46929"
+            ]
+        ]
+    },
+    {
+        "id": "52ecea81d36f93fe",
+        "type": "debug",
+        "z": "4b388c0890a0c8a0",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 820,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "79b99806499732c8",
+        "type": "ui_toast",
+        "z": "4b388c0890a0c8a0",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "yellow",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "topic": "",
+        "name": "",
+        "x": 1440,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "ce7506e025f18210",
+        "type": "change",
+        "z": "4b388c0890a0c8a0",
+        "name": "(Cucumber) Dry",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "(Cucumber) Warning Dry",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Status: Soil moisture is Dry",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1240,
+        "y": 300,
+        "wires": [
+            [
+                "79b99806499732c8"
+            ]
+        ]
+    },
+    {
+        "id": "0c558027df8f27d4",
+        "type": "switch",
+        "z": "4b388c0890a0c8a0",
+        "name": "Check Status",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Warning Dry",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Warning Water",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Error",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 3,
+        "x": 970,
+        "y": 360,
+        "wires": [
+            [
+                "ce7506e025f18210"
+            ],
+            [
+                "8d69107fc62b144b"
+            ],
+            [
+                "2831e7dac81f068f"
+            ]
+        ]
+    },
+    {
+        "id": "af5e13d9aed3653b",
+        "type": "ui_toast",
+        "z": "4b388c0890a0c8a0",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "yellow",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "topic": "",
+        "name": "",
+        "x": 1460,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "8d69107fc62b144b",
+        "type": "change",
+        "z": "4b388c0890a0c8a0",
+        "name": "(Cucumber) Water",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "Warning Water",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Status: Sensor in Water",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1250,
+        "y": 360,
+        "wires": [
+            [
+                "af5e13d9aed3653b"
+            ]
+        ]
+    },
+    {
+        "id": "4c41b95bbd7730a0",
+        "type": "ui_toast",
+        "z": "4b388c0890a0c8a0",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "red",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "topic": "",
+        "name": "",
+        "x": 1460,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "2831e7dac81f068f",
+        "type": "change",
+        "z": "4b388c0890a0c8a0",
+        "name": "(Cucumber) Error",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "(Cucumber) Error",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Status: Sensor is not in the soil or sensor is disconnected",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1250,
+        "y": 420,
+        "wires": [
+            [
+                "4c41b95bbd7730a0"
+            ]
+        ]
+    },
+    {
+        "id": "a5436a17ce598fe6",
+        "type": "ui_toast",
+        "z": "4b388c0890a0c8a0",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "yellow",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "topic": "",
+        "name": "",
+        "x": 1480,
+        "y": 1800,
+        "wires": []
+    },
+    {
+        "id": "52c6728aea2ababd",
+        "type": "change",
+        "z": "4b388c0890a0c8a0",
+        "name": "(Tomato) Dry",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "(Tomato) Warning Dry",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Status: Soil moisture is Dry",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1230,
+        "y": 1800,
+        "wires": [
+            [
+                "a5436a17ce598fe6"
+            ]
+        ]
+    },
+    {
+        "id": "e2d606253603b825",
+        "type": "switch",
+        "z": "4b388c0890a0c8a0",
+        "name": "Check Status",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Warning Dry",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Warning Water",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Error",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 3,
+        "x": 970,
+        "y": 1860,
+        "wires": [
+            [
+                "52c6728aea2ababd"
+            ],
+            [
+                "e213f9e8f404ee28"
+            ],
+            [
+                "6cf8dff9c2c5de27"
+            ]
+        ]
+    },
+    {
+        "id": "9745f416c73e98d1",
+        "type": "ui_toast",
+        "z": "4b388c0890a0c8a0",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "yellow",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "topic": "",
+        "name": "",
+        "x": 1500,
+        "y": 1860,
+        "wires": []
+    },
+    {
+        "id": "e213f9e8f404ee28",
+        "type": "change",
+        "z": "4b388c0890a0c8a0",
+        "name": "(Tomato) Water",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "(Tomato) Warning Water",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Status: Sensor in Water",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1240,
+        "y": 1860,
+        "wires": [
+            [
+                "9745f416c73e98d1"
+            ]
+        ]
+    },
+    {
+        "id": "b565480fa38811bb",
+        "type": "ui_toast",
+        "z": "4b388c0890a0c8a0",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "red",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "topic": "",
+        "name": "",
+        "x": 1500,
+        "y": 1920,
+        "wires": []
+    },
+    {
+        "id": "6cf8dff9c2c5de27",
+        "type": "change",
+        "z": "4b388c0890a0c8a0",
+        "name": "(Tomato) Error",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "(Tomato) Error",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Status: Sensor is not in the soil or sensor is disconnected",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1240,
+        "y": 1920,
+        "wires": [
+            [
+                "b565480fa38811bb"
+            ]
+        ]
+    },
+    {
+        "id": "eb8d4c0d25b79387",
+        "type": "mqtt out",
+        "z": "4b388c0890a0c8a0",
+        "name": "Watering Systems",
+        "topic": "CucumberIrrigation",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "99f5026d45d8fa24",
+        "x": 1030,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "f27ff17727cd3d2a",
+        "type": "function",
+        "z": "4b388c0890a0c8a0",
+        "name": "function 1",
+        "func": "msg.payload = Number(msg.payload);\n\nif (msg.payload  > 75 && msg.payload <= 100) {\n    msg.payload  = \"Status: Sensor in Water\";\n    msg.topic = \"2\";\n} else if (msg.payload >= 50 && msg.payload < 75) {\n    msg.payload = \"Status: Soil moisture is perfect (humid)\";\n} else if (msg.payload >= 5 && msg.payload < 50) {\n    msg.payload = \"Status: Soil moisture is Dry\";\n    msg.topic = \"1\";\n} else {\n    msg.payload = \"Status: Sensor is not in the soil or sensor is disconnected.\";\n    msg.topic = \"Error\";\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 790,
+        "y": 460,
+        "wires": [
+            [
+                "eb8d4c0d25b79387"
+            ]
+        ]
+    },
+    {
+        "id": "272cf57f07760d7f",
+        "type": "mqtt in",
+        "z": "dadd6438b8733412",
+        "name": "Air Temperature Cucumber",
+        "topic": "airTemperatureCucumber",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "99f5026d45d8fa24",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 230,
+        "y": 200,
+        "wires": [
+            [
+                "b15d082cd28019ac",
+                "4c88584849ece462",
+                "7b7df4313e69f044",
+                "afc9aaae15c94e77",
+                "eb738877ba71d8c1"
+            ]
+        ]
+    },
+    {
+        "id": "7b7df4313e69f044",
+        "type": "debug",
+        "z": "dadd6438b8733412",
+        "name": "Check Air Temperature Cucumber",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 660,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "4c88584849ece462",
+        "type": "ui_chart",
+        "z": "dadd6438b8733412",
+        "name": "Cucumber  Chart",
+        "group": "ab6ca969e5450998",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "Air Temperature Cucumber Chart",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "100",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#31a031",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "x": 600,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "24ab5e16bcd62670",
+        "type": "ui_text",
+        "z": "dadd6438b8733412",
+        "group": "ab6ca969e5450998",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "Cucumber Text",
+        "label": "Air Temperature Cucumber Status",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "x": 1060,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "afc9aaae15c94e77",
+        "type": "function",
+        "z": "dadd6438b8733412",
+        "name": "Investigating the quality of Air Temperature Cucumber",
+        "func": "msg.payload = Number(msg.payload);\n\nif (msg.payload < 0) {\n    msg.payload = \"Status: Temperature is below freezing.\";\n    msg.topic = \"Freezing\";\n} else if (msg.payload >= 0 && msg.payload < 15) {\n    msg.payload = \"Status: Temperature is cold.\";\n    msg.topic = \"Cold\";\n} else if (msg.payload >= 15 && msg.payload < 25) {\n    msg.payload = \"Status: Temperature is moderate.\";\n} else if (msg.payload >= 25 && msg.payload < 35) {\n    msg.payload = \"Status: Temperature is warm.\";\n    msg.topic = \"Warm\";\n} else {\n    msg.payload = \"Status: Temperature is hot.\";\n    msg.topic = \"Hot\";\n}\n\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 300,
+        "wires": [
+            [
+                "24ab5e16bcd62670",
+                "c552f6a67fb48bc1"
+            ]
+        ]
+    },
+    {
+        "id": "b15d082cd28019ac",
+        "type": "ui_gauge",
+        "z": "dadd6438b8733412",
+        "name": "Cucumber Gauge",
+        "group": "ab6ca969e5450998",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Air Temperature Cucumber Gauge",
+        "label": "percent",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 610,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "50b363d832a78da6",
+        "type": "mqtt in",
+        "z": "dadd6438b8733412",
+        "name": "Air Temperature Tomato",
+        "topic": "airTemperatureTomato",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "99f5026d45d8fa24",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 220,
+        "y": 1480,
+        "wires": [
+            [
+                "a270cbef98badca4",
+                "f372bb0f7e025f55",
+                "c0cd59bfa4a3ddd4",
+                "8697e49b138ba32e",
+                "2a6f0da2dd3ce1ed"
+            ]
+        ]
+    },
+    {
+        "id": "c0cd59bfa4a3ddd4",
+        "type": "debug",
+        "z": "dadd6438b8733412",
+        "name": "Check Air Temperature Tomato",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 650,
+        "y": 1400,
+        "wires": []
+    },
+    {
+        "id": "f372bb0f7e025f55",
+        "type": "ui_chart",
+        "z": "dadd6438b8733412",
+        "name": "Tomato  Chart",
+        "group": "70629d31b7af9210",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "Air Temperature Tomato Chart",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "100",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#31a031",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "x": 600,
+        "y": 1520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ee6b74e645898ebe",
+        "type": "ui_text",
+        "z": "dadd6438b8733412",
+        "group": "70629d31b7af9210",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "Tomato Text",
+        "label": "Air Temperature Tomato Status",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "x": 1030,
+        "y": 1840,
+        "wires": []
+    },
+    {
+        "id": "8697e49b138ba32e",
+        "type": "function",
+        "z": "dadd6438b8733412",
+        "name": "Investigating the quality of Air Temperature Tomato",
+        "func": "msg.payload = Number(msg.payload);\n\nif (msg.payload < 0) {\n    msg.payload = \"Status: Temperature is below freezing.\";\n    msg.topic = \"Freezing\";\n} else if (msg.payload >= 0 && msg.payload < 15) {\n    msg.payload = \"Status: Temperature is cold.\";\n    msg.topic = \"Cold\";\n} else if (msg.payload >= 15 && msg.payload < 25) {\n    msg.payload = \"Status: Temperature is moderate.\";\n} else if (msg.payload >= 25 && msg.payload < 35) {\n    msg.payload = \"Status: Temperature is warm.\";\n    msg.topic = \"Warm\";\n} else {\n    msg.payload = \"Status: Temperature is hot.\";\n    msg.topic = \"Hot\";\n}\n\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 1580,
+        "wires": [
+            [
+                "ee6b74e645898ebe",
+                "a1eb3433feb5b7c6"
+            ]
+        ]
+    },
+    {
+        "id": "a270cbef98badca4",
+        "type": "ui_gauge",
+        "z": "dadd6438b8733412",
+        "name": "Tomato Gauge",
+        "group": "70629d31b7af9210",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Air Temperature Tomato Gauge",
+        "label": "percent",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 600,
+        "y": 1460,
+        "wires": []
+    },
+    {
+        "id": "567b1eba1361b55d",
+        "type": "ui_dropdown",
+        "z": "dadd6438b8733412",
+        "name": "Cucumber temperature adjustment",
+        "label": "Cucumber temperature adjustment",
+        "tooltip": "",
+        "place": "",
+        "group": "ab6ca969e5450998",
+        "width": "",
+        "height": "",
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "15",
+                "value": 15,
+                "type": "num"
+            },
+            {
+                "label": "16",
+                "value": 16,
+                "type": "num"
+            },
+            {
+                "label": "17",
+                "value": 17,
+                "type": "num"
+            },
+            {
+                "label": "18",
+                "value": 18,
+                "type": "num"
+            },
+            {
+                "label": "19",
+                "value": 19,
+                "type": "num"
+            },
+            {
+                "label": "20",
+                "value": 20,
+                "type": "num"
+            },
+            {
+                "label": "21",
+                "value": 21,
+                "type": "num"
+            },
+            {
+                "label": "22",
+                "value": 22,
+                "type": "num"
+            },
+            {
+                "label": "23",
+                "value": 23,
+                "type": "num"
+            },
+            {
+                "label": "24",
+                "value": 24,
+                "type": "num"
+            },
+            {
+                "label": "25",
+                "value": 25,
+                "type": "num"
+            },
+            {
+                "label": "26",
+                "value": 26,
+                "type": "num"
+            },
+            {
+                "label": "27",
+                "value": 27,
+                "type": "num"
+            },
+            {
+                "label": "28",
+                "value": 28,
+                "type": "num"
+            },
+            {
+                "label": "29",
+                "value": 29,
+                "type": "num"
+            },
+            {
+                "label": "30",
+                "value": 30,
+                "type": "num"
+            },
+            {
+                "label": "31",
+                "value": 31,
+                "type": "num"
+            },
+            {
+                "label": "32",
+                "value": 32,
+                "type": "num"
+            },
+            {
+                "label": "33",
+                "value": 33,
+                "type": "num"
+            },
+            {
+                "label": "34",
+                "value": 34,
+                "type": "num"
+            },
+            {
+                "label": "35",
+                "value": 35,
+                "type": "num"
+            }
+        ],
+        "payload": "",
+        "topic": "payload",
+        "topicType": "msg",
+        "x": 270,
+        "y": 700,
+        "wires": [
+            [
+                "cc001f8ffbd0e0c8"
+            ]
+        ]
+    },
+    {
+        "id": "1bce013890a46396",
+        "type": "mqtt out",
+        "z": "dadd6438b8733412",
+        "name": "Cucumber temperature adjustment",
+        "topic": "CucumberTemperatureAdjustment",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "99f5026d45d8fa24",
+        "x": 870,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "cc001f8ffbd0e0c8",
+        "type": "function",
+        "z": "dadd6438b8733412",
+        "name": "Data to String Cucumber",
+        "func": "msg.payload = String(msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 700,
+        "wires": [
+            [
+                "1bce013890a46396",
+                "e13e2292c6b34045"
+            ]
+        ]
+    },
+    {
+        "id": "e13e2292c6b34045",
+        "type": "debug",
+        "z": "dadd6438b8733412",
+        "name": "Output of DTS Cucumber",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 840,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "69e0a7dfdc1d52b4",
+        "type": "ui_dropdown",
+        "z": "dadd6438b8733412",
+        "name": "Tomato temperature adjustment",
+        "label": "Tomato temperature adjustment",
+        "tooltip": "",
+        "place": "",
+        "group": "70629d31b7af9210",
+        "width": "",
+        "height": "",
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "15",
+                "value": 15,
+                "type": "num"
+            },
+            {
+                "label": "16",
+                "value": 16,
+                "type": "num"
+            },
+            {
+                "label": "17",
+                "value": 17,
+                "type": "num"
+            },
+            {
+                "label": "18",
+                "value": 18,
+                "type": "num"
+            },
+            {
+                "label": "19",
+                "value": 19,
+                "type": "num"
+            },
+            {
+                "label": "20",
+                "value": 20,
+                "type": "num"
+            },
+            {
+                "label": "21",
+                "value": 21,
+                "type": "num"
+            },
+            {
+                "label": "22",
+                "value": 22,
+                "type": "num"
+            },
+            {
+                "label": "23",
+                "value": 23,
+                "type": "num"
+            },
+            {
+                "label": "24",
+                "value": 24,
+                "type": "num"
+            },
+            {
+                "label": "25",
+                "value": 25,
+                "type": "num"
+            },
+            {
+                "label": "26",
+                "value": 26,
+                "type": "num"
+            },
+            {
+                "label": "27",
+                "value": 27,
+                "type": "num"
+            },
+            {
+                "label": "28",
+                "value": 28,
+                "type": "num"
+            },
+            {
+                "label": "29",
+                "value": 29,
+                "type": "num"
+            },
+            {
+                "label": "30",
+                "value": 30,
+                "type": "num"
+            },
+            {
+                "label": "31",
+                "value": 31,
+                "type": "num"
+            },
+            {
+                "label": "32",
+                "value": 32,
+                "type": "num"
+            },
+            {
+                "label": "33",
+                "value": 33,
+                "type": "num"
+            },
+            {
+                "label": "34",
+                "value": 34,
+                "type": "num"
+            },
+            {
+                "label": "35",
+                "value": 35,
+                "type": "num"
+            }
+        ],
+        "payload": "",
+        "topic": "payload",
+        "topicType": "msg",
+        "x": 220,
+        "y": 2040,
+        "wires": [
+            [
+                "e50c51eaecd7b54d"
+            ]
+        ]
+    },
+    {
+        "id": "294adad54ae01f41",
+        "type": "mqtt out",
+        "z": "dadd6438b8733412",
+        "name": "Tomato temperature adjustment",
+        "topic": "TomatoTemperatureAdjustment",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "99f5026d45d8fa24",
+        "x": 820,
+        "y": 2040,
+        "wires": []
+    },
+    {
+        "id": "e50c51eaecd7b54d",
+        "type": "function",
+        "z": "dadd6438b8733412",
+        "name": "Data to String Tomato",
+        "func": "msg.payload = String(msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 530,
+        "y": 2040,
+        "wires": [
+            [
+                "294adad54ae01f41",
+                "97d116dc2d4b0afb"
+            ]
+        ]
+    },
+    {
+        "id": "97d116dc2d4b0afb",
+        "type": "debug",
+        "z": "dadd6438b8733412",
+        "name": "Output of DTS Tomato",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 790,
+        "y": 2100,
+        "wires": []
+    },
+    {
+        "id": "ea44b82353614ce8",
+        "type": "mysql",
+        "z": "dadd6438b8733412",
+        "mydb": "e3fa3322af551f8a",
+        "name": "IOT Database",
+        "x": 860,
+        "y": 60,
+        "wires": [
+            [
+                "c2eef396bfad2c96"
+            ]
+        ]
+    },
+    {
+        "id": "eb738877ba71d8c1",
+        "type": "function",
+        "z": "dadd6438b8733412",
+        "name": "InsertValue",
+        "func": "var data = Number(msg.payload);\nvar dateTime = data.dateTime;\nvar type = \"Cucumber\";\n\nmsg.topic = \"INSERT INTO AirTemperature (type, dateTime, value) VALUES ('\" + type + \"', NOW(), \" + data + \")\";\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 60,
+        "wires": [
+            [
+                "ea44b82353614ce8"
+            ]
+        ]
+    },
+    {
+        "id": "c2eef396bfad2c96",
+        "type": "debug",
+        "z": "dadd6438b8733412",
+        "name": "Insert Value In Air Temperature Tabel (Cucumber)",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1270,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "e1773715015d26c3",
+        "type": "mysql",
+        "z": "dadd6438b8733412",
+        "mydb": "e3fa3322af551f8a",
+        "name": "IOT Database",
+        "x": 860,
+        "y": 1340,
+        "wires": [
+            [
+                "b7154b96585ac0d1"
+            ]
+        ]
+    },
+    {
+        "id": "2a6f0da2dd3ce1ed",
+        "type": "function",
+        "z": "dadd6438b8733412",
+        "name": "InsertValue",
+        "func": "var data = Number(msg.payload);\nvar dateTime = data.dateTime;\nvar type = \"Tomato\";\n\nmsg.topic = \"INSERT INTO AirTemperature VALUES (\" + type + \", NOW(), \" + data + \")\";\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 1340,
+        "wires": [
+            [
+                "e1773715015d26c3"
+            ]
+        ]
+    },
+    {
+        "id": "b7154b96585ac0d1",
+        "type": "debug",
+        "z": "dadd6438b8733412",
+        "name": "Insert Value In Air Temperature Tabel (Tomato)",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1260,
+        "y": 1340,
+        "wires": []
+    },
+    {
+        "id": "a172d3145b85f37b",
+        "type": "ui_form",
+        "z": "dadd6438b8733412",
+        "name": "",
+        "label": "Select Date Range",
+        "group": "ab6ca969e5450998",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "Start Date",
+                "value": "startDate",
+                "type": "date",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "End Date",
+                "value": "endDate",
+                "type": "date",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "startDate": "",
+            "endDate": ""
+        },
+        "submit": "Get Csv File",
+        "cancel": "",
+        "topic": "",
+        "topicType": "str",
+        "splitLayout": false,
+        "x": 220,
+        "y": 640,
+        "wires": [
+            [
+                "a1c26d34571cbf53"
+            ]
+        ]
+    },
+    {
+        "id": "b3fea8f6dad854f2",
+        "type": "file",
+        "z": "dadd6438b8733412",
+        "name": "Write Output",
+        "filename": "H:\\Term-6\\Internet of things\\Project\\output.csv",
+        "filenameType": "str",
+        "appendNewline": false,
+        "createDir": false,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 1130,
+        "y": 640,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a1c26d34571cbf53",
+        "type": "function",
+        "z": "dadd6438b8733412",
+        "name": "Prepare Query",
+        "func": "var startDate = msg.payload.startDate;\nvar endDate = msg.payload.endDate;\n\nstartDate = new Date(startDate).toISOString().split('T')[0];\nendDate = new Date(endDate).toISOString().split('T')[0];\n\nmsg.topic = `SELECT * FROM AirTemperature WHERE type = 'Cucumber' AND  dateTime BETWEEN '${startDate}' AND '${endDate}'`;\nreturn msg; ",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 640,
+        "wires": [
+            [
+                "5e8d5952cef1657e"
+            ]
+        ]
+    },
+    {
+        "id": "5e8d5952cef1657e",
+        "type": "mysql",
+        "z": "dadd6438b8733412",
+        "mydb": "e3fa3322af551f8a",
+        "name": "IOT Database",
+        "x": 680,
+        "y": 640,
+        "wires": [
+            [
+                "a5c4799d0a1f7293"
+            ]
+        ]
+    },
+    {
+        "id": "a5c4799d0a1f7293",
+        "type": "csv",
+        "z": "dadd6438b8733412",
+        "name": "",
+        "sep": ",",
+        "hdrin": true,
+        "hdrout": "all",
+        "multi": "one",
+        "ret": "\\r\\n",
+        "temp": "",
+        "skip": "0",
+        "strings": true,
+        "include_empty_strings": true,
+        "include_null_values": true,
+        "x": 900,
+        "y": 640,
+        "wires": [
+            [
+                "b3fea8f6dad854f2"
+            ]
+        ]
+    },
+    {
+        "id": "491ac442a1c54000",
+        "type": "ui_form",
+        "z": "dadd6438b8733412",
+        "name": "",
+        "label": "Select Date Range",
+        "group": "70629d31b7af9210",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "Start Date",
+                "value": "startDate",
+                "type": "date",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "End Date",
+                "value": "endDate",
+                "type": "date",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "startDate": "",
+            "endDate": ""
+        },
+        "submit": "Get Csv File",
+        "cancel": "",
+        "topic": "",
+        "topicType": "str",
+        "splitLayout": false,
+        "x": 180,
+        "y": 1960,
+        "wires": [
+            [
+                "4cc63e50c67c022c"
+            ]
+        ]
+    },
+    {
+        "id": "7b46fd34d7c825a9",
+        "type": "file",
+        "z": "dadd6438b8733412",
+        "name": "Write Output",
+        "filename": "H:\\Term-6\\Internet of things\\Project\\output.csv",
+        "filenameType": "str",
+        "appendNewline": false,
+        "createDir": false,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 1070,
+        "y": 1960,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4cc63e50c67c022c",
+        "type": "function",
+        "z": "dadd6438b8733412",
+        "name": "Prepare Query",
+        "func": "var startDate = msg.payload.startDate;\nvar endDate = msg.payload.endDate;\n\nstartDate = new Date(startDate).toISOString().split('T')[0];\nendDate = new Date(endDate).toISOString().split('T')[0];\n\nmsg.topic = `SELECT * FROM AirTemperature WHERE type = 'Tomato' AND  dateTime BETWEEN '${startDate}' AND '${endDate}'`;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 1960,
+        "wires": [
+            [
+                "e3ad9656d76b8a2b"
+            ]
+        ]
+    },
+    {
+        "id": "e3ad9656d76b8a2b",
+        "type": "mysql",
+        "z": "dadd6438b8733412",
+        "mydb": "e3fa3322af551f8a",
+        "name": "IOT Database",
+        "x": 620,
+        "y": 1960,
+        "wires": [
+            [
+                "0fb4340ee7f3e216"
+            ]
+        ]
+    },
+    {
+        "id": "0fb4340ee7f3e216",
+        "type": "csv",
+        "z": "dadd6438b8733412",
+        "name": "",
+        "sep": ",",
+        "hdrin": true,
+        "hdrout": "all",
+        "multi": "one",
+        "ret": "\\r\\n",
+        "temp": "",
+        "skip": "0",
+        "strings": true,
+        "include_empty_strings": true,
+        "include_null_values": true,
+        "x": 840,
+        "y": 1960,
+        "wires": [
+            [
+                "7b46fd34d7c825a9"
+            ]
+        ]
+    },
+    {
+        "id": "c552f6a67fb48bc1",
+        "type": "switch",
+        "z": "dadd6438b8733412",
+        "name": "",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Hot",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Warm",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Cold",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Freezing",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 4,
+        "x": 1070,
+        "y": 300,
+        "wires": [
+            [
+                "b441ca25ecdefbd3"
+            ],
+            [
+                "868f975c2016387f"
+            ],
+            [
+                "a9eda66297696052"
+            ],
+            [
+                "6fa9f672e1d78228"
+            ]
+        ]
+    },
+    {
+        "id": "b441ca25ecdefbd3",
+        "type": "change",
+        "z": "dadd6438b8733412",
+        "name": "(Cucumber) Hot",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "(Cucumber) Hot",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Status: Temperature is hot",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1240,
+        "y": 140,
+        "wires": [
+            [
+                "2925e55ccbe965c3"
+            ]
+        ]
+    },
+    {
+        "id": "2925e55ccbe965c3",
+        "type": "ui_toast",
+        "z": "dadd6438b8733412",
+        "position": "bottom left",
+        "displayTime": "3",
+        "highlight": "yellow",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "topic": "",
+        "name": "",
+        "x": 1460,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "868f975c2016387f",
+        "type": "change",
+        "z": "dadd6438b8733412",
+        "name": "(Cucumber) Warm",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "(Cucumber) Warm",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Status: Temperature is warm",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1330,
+        "y": 220,
+        "wires": [
+            [
+                "e7e6124cf0cd3fa9"
+            ]
+        ]
+    },
+    {
+        "id": "e7e6124cf0cd3fa9",
+        "type": "ui_toast",
+        "z": "dadd6438b8733412",
+        "position": "bottom left",
+        "displayTime": "3",
+        "highlight": "yellow",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "topic": "",
+        "name": "",
+        "x": 1540,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "a9eda66297696052",
+        "type": "change",
+        "z": "dadd6438b8733412",
+        "name": "(Cucumber) Cold",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "(Cucumber) Cold",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Status: Temperature is cold",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1330,
+        "y": 320,
+        "wires": [
+            [
+                "ec44af818a2362b4"
+            ]
+        ]
+    },
+    {
+        "id": "ec44af818a2362b4",
+        "type": "ui_toast",
+        "z": "dadd6438b8733412",
+        "position": "bottom left",
+        "displayTime": "3",
+        "highlight": "yellow",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "topic": "",
+        "name": "",
+        "x": 1540,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "6fa9f672e1d78228",
+        "type": "change",
+        "z": "dadd6438b8733412",
+        "name": "(Cucumber) Freezing",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "(Cucumber) Freezing",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Status: Temperature is below freezing",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1260,
+        "y": 400,
+        "wires": [
+            [
+                "651a0b2e81332ba7"
+            ]
+        ]
+    },
+    {
+        "id": "651a0b2e81332ba7",
+        "type": "ui_toast",
+        "z": "dadd6438b8733412",
+        "position": "bottom left",
+        "displayTime": "3",
+        "highlight": "yellow",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "topic": "",
+        "name": "",
+        "x": 1480,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "a1eb3433feb5b7c6",
+        "type": "switch",
+        "z": "dadd6438b8733412",
+        "name": "",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Hot",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Warm",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Cold",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Freezing",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 4,
+        "x": 1070,
+        "y": 1600,
+        "wires": [
+            [
+                "f951e1545b930ebd"
+            ],
+            [
+                "7af4e7561d9e8b96"
+            ],
+            [
+                "203f47cc39cdba1b"
+            ],
+            [
+                "77861dbe33448e70"
+            ]
+        ]
+    },
+    {
+        "id": "f951e1545b930ebd",
+        "type": "change",
+        "z": "dadd6438b8733412",
+        "name": "(Tomato) Hot",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "(Tomato) Hot",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Status: Temperature is hot",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1230,
+        "y": 1440,
+        "wires": [
+            [
+                "0b330c564cfe8473"
+            ]
+        ]
+    },
+    {
+        "id": "7af4e7561d9e8b96",
+        "type": "change",
+        "z": "dadd6438b8733412",
+        "name": "(Tomato) Warm",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "(Tomato) Warm",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Status: Temperature is warm",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1320,
+        "y": 1520,
+        "wires": [
+            [
+                "05de8709db07a16f"
+            ]
+        ]
+    },
+    {
+        "id": "203f47cc39cdba1b",
+        "type": "change",
+        "z": "dadd6438b8733412",
+        "name": "(Tomato) Cold",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "(Tomato) Cold",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Status: Temperature is cold",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1320,
+        "y": 1620,
+        "wires": [
+            [
+                "86aa8717431f3d59"
+            ]
+        ]
+    },
+    {
+        "id": "77861dbe33448e70",
+        "type": "change",
+        "z": "dadd6438b8733412",
+        "name": "(Tomato) Freezing",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "(Tomato) Freezing",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Status: Temperature is below freezing",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1250,
+        "y": 1700,
+        "wires": [
+            [
+                "1af0103ca399c874"
+            ]
+        ]
+    },
+    {
+        "id": "0b330c564cfe8473",
+        "type": "ui_toast",
+        "z": "dadd6438b8733412",
+        "position": "bottom left",
+        "displayTime": "3",
+        "highlight": "yellow",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "topic": "",
+        "name": "",
+        "x": 1580,
+        "y": 1440,
+        "wires": []
+    },
+    {
+        "id": "05de8709db07a16f",
+        "type": "ui_toast",
+        "z": "dadd6438b8733412",
+        "position": "bottom left",
+        "displayTime": "3",
+        "highlight": "yellow",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "topic": "",
+        "name": "",
+        "x": 1660,
+        "y": 1520,
+        "wires": []
+    },
+    {
+        "id": "86aa8717431f3d59",
+        "type": "ui_toast",
+        "z": "dadd6438b8733412",
+        "position": "bottom left",
+        "displayTime": "3",
+        "highlight": "yellow",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "topic": "",
+        "name": "",
+        "x": 1660,
+        "y": 1620,
+        "wires": []
+    },
+    {
+        "id": "1af0103ca399c874",
+        "type": "ui_toast",
+        "z": "dadd6438b8733412",
+        "position": "bottom left",
+        "displayTime": "3",
+        "highlight": "yellow",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "topic": "",
+        "name": "",
+        "x": 1600,
+        "y": 1700,
+        "wires": []
+    },
+    {
+        "id": "096ebe4a2c76118c",
+        "type": "mqtt in",
+        "z": "34aadf24fce843a3",
+        "name": "Air Humidity Cucumber",
+        "topic": "airHumidityCucumber",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "99f5026d45d8fa24",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 180,
+        "y": 200,
+        "wires": [
+            [
+                "9d4d74153745f9b7",
+                "ece15c1d9921ef3b",
+                "06ae216cc598cfde",
+                "f8361f12aa43242e",
+                "03aba387a0bfec72"
+            ]
+        ]
+    },
+    {
+        "id": "f8361f12aa43242e",
+        "type": "debug",
+        "z": "34aadf24fce843a3",
+        "name": "Check Air Humidity Cucumber",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 610,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "ece15c1d9921ef3b",
+        "type": "ui_chart",
+        "z": "34aadf24fce843a3",
+        "name": "Cucumber Chart",
+        "group": "aaaab3b505296e69",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "Air Humidity Cucumber Chart",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "100",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#31a031",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "x": 560,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9a6bc32d3996f130",
+        "type": "ui_text",
+        "z": "34aadf24fce843a3",
+        "group": "aaaab3b505296e69",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "Cucumber Text",
+        "label": "Air Humidity Cucumber Status",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "x": 1020,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "06ae216cc598cfde",
+        "type": "function",
+        "z": "34aadf24fce843a3",
+        "name": "Investigating the quality of Air Humidity Cucumber",
+        "func": "var humidity = Number(msg.payload);\n\nif (humidity < 30) {\n    msg.payload = \"Status: Air is very dry.\";\n    msg.topic = \"Very Dry\";\n} else if (humidity >= 30 && humidity < 50) {\n    msg.payload = \"Status: Air is dry.\";\n    msg.topic = \"Dry\";\n} else if (humidity >= 50 && humidity < 70) {\n    msg.payload = \"Status: Air humidity is moderate.\";\n} else if (humidity >= 70 && humidity < 90) {\n    msg.payload = \"Status: Air humidity is high.\";\n    msg.topic = \"High\";\n} else {\n    msg.payload = \"Status: Air is very humid.\";\n    msg.topic = \"Very Humid\";\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 670,
+        "y": 300,
+        "wires": [
+            [
+                "9a6bc32d3996f130",
+                "0865a677486d9a91"
+            ]
+        ]
+    },
+    {
+        "id": "9d4d74153745f9b7",
+        "type": "ui_gauge",
+        "z": "34aadf24fce843a3",
+        "name": "Cucumber Gauge",
+        "group": "aaaab3b505296e69",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Air Humidity Cucumber Gauge",
+        "label": "percent",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 570,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "184e64d47664f228",
+        "type": "mqtt in",
+        "z": "34aadf24fce843a3",
+        "name": "Air Humidity Tomato",
+        "topic": "airHumidityTomato",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "99f5026d45d8fa24",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 190,
+        "y": 1680,
+        "wires": [
+            [
+                "38ebc652d8834fb6",
+                "5fba0d08aecc0a83",
+                "230549ece32876ac",
+                "79f01f892f539904",
+                "011cf1fd6efc9a38"
+            ]
+        ]
+    },
+    {
+        "id": "79f01f892f539904",
+        "type": "debug",
+        "z": "34aadf24fce843a3",
+        "name": "Check Air Humidity Tomato",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 720,
+        "y": 1600,
+        "wires": []
+    },
+    {
+        "id": "5fba0d08aecc0a83",
+        "type": "ui_chart",
+        "z": "34aadf24fce843a3",
+        "name": "Tomato Chart",
+        "group": "108c3fee09587cc4",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "Air Humidity Tomato Chart",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "100",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#31a031",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "x": 680,
+        "y": 1720,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "35a409d9c8b87d1a",
+        "type": "ui_text",
+        "z": "34aadf24fce843a3",
+        "group": "108c3fee09587cc4",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "Tomato Text",
+        "label": "Air Humidity Tomato Status",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "x": 1110,
+        "y": 2040,
+        "wires": []
+    },
+    {
+        "id": "230549ece32876ac",
+        "type": "function",
+        "z": "34aadf24fce843a3",
+        "name": "Investigating the quality of Air Humidity Cucumber",
+        "func": "var humidity = Number(msg.payload);\n\nif (humidity < 30) {\n    msg.payload = \"Status: Air is very dry.\";\n    msg.topic = \"Very Dry\";\n} else if (humidity >= 30 && humidity < 50) {\n    msg.payload = \"Status: Air is dry.\";\n    msg.topic = \"Dry\";\n} else if (humidity >= 50 && humidity < 70) {\n    msg.payload = \"Status: Air humidity is moderate.\";\n} else if (humidity >= 70 && humidity < 90) {\n    msg.payload = \"Status: Air humidity is high.\";\n    msg.topic = \"High\";\n} else {\n    msg.payload = \"Status: Air is very humid.\";\n    msg.topic = \"Very Humid\";\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 790,
+        "y": 1780,
+        "wires": [
+            [
+                "35a409d9c8b87d1a",
+                "f806e23430b4bc03"
+            ]
+        ]
+    },
+    {
+        "id": "38ebc652d8834fb6",
+        "type": "ui_gauge",
+        "z": "34aadf24fce843a3",
+        "name": "Tomato Gauge",
+        "group": "108c3fee09587cc4",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Air Humidity Tomato Gauge",
+        "label": "percent",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 680,
+        "y": 1660,
+        "wires": []
+    },
+    {
+        "id": "bbe9f26b001d736a",
+        "type": "ui_dropdown",
+        "z": "34aadf24fce843a3",
+        "name": "",
+        "label": "Select Humidity Cucumber Level",
+        "tooltip": "",
+        "place": "",
+        "group": "aaaab3b505296e69",
+        "width": "",
+        "height": "",
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "Very Dry (0-29%)",
+                "value": "1",
+                "type": "str"
+            },
+            {
+                "label": "Dry (30-49%)",
+                "value": "2",
+                "type": "str"
+            },
+            {
+                "label": "Moderate (50-69%)",
+                "value": "3",
+                "type": "str"
+            },
+            {
+                "label": "High (70-89%)",
+                "value": "4",
+                "type": "str"
+            },
+            {
+                "label": "Very Humid (90-100%)",
+                "value": "5",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "payload",
+        "topicType": "msg",
+        "x": 220,
+        "y": 840,
+        "wires": [
+            [
+                "2d0912a2c312c382",
+                "2601d8b76f1e233a"
+            ]
+        ]
+    },
+    {
+        "id": "2d0912a2c312c382",
+        "type": "debug",
+        "z": "34aadf24fce843a3",
+        "name": "Check Humidity Cucumber Level",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 730,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "2601d8b76f1e233a",
+        "type": "mqtt out",
+        "z": "34aadf24fce843a3",
+        "name": "Humidity Cucumber Level",
+        "topic": "AirHumidityCucumberLevel",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "99f5026d45d8fa24",
+        "x": 700,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "7d07657713f8838f",
+        "type": "ui_dropdown",
+        "z": "34aadf24fce843a3",
+        "name": "",
+        "label": "Select Humidity Tomato Level",
+        "tooltip": "",
+        "place": "",
+        "group": "108c3fee09587cc4",
+        "width": "",
+        "height": "",
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "Very Dry (0-29%)",
+                "value": "very_dry",
+                "type": "str"
+            },
+            {
+                "label": "Dry (30-49%)",
+                "value": "dry",
+                "type": "str"
+            },
+            {
+                "label": "Moderate (50-69%)",
+                "value": "moderate",
+                "type": "str"
+            },
+            {
+                "label": "High (70-89%)",
+                "value": "high",
+                "type": "str"
+            },
+            {
+                "label": "Very Humid (90-100%)",
+                "value": "very_humid",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "payload",
+        "topicType": "msg",
+        "x": 240,
+        "y": 2240,
+        "wires": [
+            [
+                "ed1bd47f7635596a",
+                "1b9a97b80ca37ef9"
+            ]
+        ]
+    },
+    {
+        "id": "ed1bd47f7635596a",
+        "type": "debug",
+        "z": "34aadf24fce843a3",
+        "name": "Check Humidity Tomato Level",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 540,
+        "y": 2360,
+        "wires": []
+    },
+    {
+        "id": "1b9a97b80ca37ef9",
+        "type": "mqtt out",
+        "z": "34aadf24fce843a3",
+        "name": "Humidity Tomato Level",
+        "topic": "AirHumidityTomatoLevel",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "99f5026d45d8fa24",
+        "x": 710,
+        "y": 2240,
+        "wires": []
+    },
+    {
+        "id": "a28d142f2bd450f3",
+        "type": "mysql",
+        "z": "34aadf24fce843a3",
+        "mydb": "e3fa3322af551f8a",
+        "name": "IOT Database",
+        "x": 820,
+        "y": 40,
+        "wires": [
+            [
+                "7ffee6406b474312"
+            ]
+        ]
+    },
+    {
+        "id": "03aba387a0bfec72",
+        "type": "function",
+        "z": "34aadf24fce843a3",
+        "name": "InsertValue",
+        "func": "var data = Number(msg.payload);\nvar dateTime = data.dateTime;\nvar type = \"Cucumber\";\n\nmsg.topic = \"INSERT INTO AirHumidity (type, dateTime, value) VALUES ('\" + type + \"', NOW(), \" + data + \")\";\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 550,
+        "y": 40,
+        "wires": [
+            [
+                "a28d142f2bd450f3"
+            ]
+        ]
+    },
+    {
+        "id": "7ffee6406b474312",
+        "type": "debug",
+        "z": "34aadf24fce843a3",
+        "name": "Insert Value In Air Humidity Tabel (Cucumber)",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1210,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "834ffd6130d3aaaf",
+        "type": "mysql",
+        "z": "34aadf24fce843a3",
+        "mydb": "e3fa3322af551f8a",
+        "name": "IOT Database",
+        "x": 940,
+        "y": 1540,
+        "wires": [
+            [
+                "396facfa2e0228d3"
+            ]
+        ]
+    },
+    {
+        "id": "011cf1fd6efc9a38",
+        "type": "function",
+        "z": "34aadf24fce843a3",
+        "name": "InsertValue",
+        "func": "var data = Number(msg.payload);\nvar dateTime = data.dateTime;\nvar type = \"Tomato\";\n\nmsg.topic = \"INSERT INTO AirHumidity VALUES (\" + type + \", NOW(), \" + data + \")\";\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 670,
+        "y": 1540,
+        "wires": [
+            [
+                "834ffd6130d3aaaf"
+            ]
+        ]
+    },
+    {
+        "id": "396facfa2e0228d3",
+        "type": "debug",
+        "z": "34aadf24fce843a3",
+        "name": "Insert Value In Air Humidity Tabel (Tomato)",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1330,
+        "y": 1540,
+        "wires": []
+    },
+    {
+        "id": "fe2ad4318a360067",
+        "type": "ui_form",
+        "z": "34aadf24fce843a3",
+        "name": "",
+        "label": "Select Date Range",
+        "group": "aaaab3b505296e69",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "Start Date",
+                "value": "startDate",
+                "type": "date",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "End Date",
+                "value": "endDate",
+                "type": "date",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "startDate": "",
+            "endDate": ""
+        },
+        "submit": "Get Csv File",
+        "cancel": "",
+        "topic": "",
+        "topicType": "str",
+        "splitLayout": false,
+        "x": 180,
+        "y": 760,
+        "wires": [
+            [
+                "5ad79ee2d51ef1bb"
+            ]
+        ]
+    },
+    {
+        "id": "bcabc2a382af5131",
+        "type": "file",
+        "z": "34aadf24fce843a3",
+        "name": "Write Output",
+        "filename": "H:\\Term-6\\Internet of things\\Project\\output.csv",
+        "filenameType": "str",
+        "appendNewline": false,
+        "createDir": false,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 1070,
+        "y": 760,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5ad79ee2d51ef1bb",
+        "type": "function",
+        "z": "34aadf24fce843a3",
+        "name": "Prepare Query",
+        "func": "var startDate = msg.payload.startDate;\nvar endDate = msg.payload.endDate;\n\nstartDate = new Date(startDate).toISOString().split('T')[0];\nendDate = new Date(endDate).toISOString().split('T')[0];\n\nmsg.topic = `SELECT * FROM AirHumidity WHERE type = 'Cucumber' AND  dateTime BETWEEN '${startDate}' AND '${endDate}'`;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 760,
+        "wires": [
+            [
+                "7ecb03eb1e6af303"
+            ]
+        ]
+    },
+    {
+        "id": "7ecb03eb1e6af303",
+        "type": "mysql",
+        "z": "34aadf24fce843a3",
+        "mydb": "e3fa3322af551f8a",
+        "name": "IOT Database",
+        "x": 620,
+        "y": 760,
+        "wires": [
+            [
+                "1ecc2f427868a1b6"
+            ]
+        ]
+    },
+    {
+        "id": "1ecc2f427868a1b6",
+        "type": "csv",
+        "z": "34aadf24fce843a3",
+        "name": "",
+        "sep": ",",
+        "hdrin": true,
+        "hdrout": "all",
+        "multi": "one",
+        "ret": "\\r\\n",
+        "temp": "",
+        "skip": "0",
+        "strings": true,
+        "include_empty_strings": true,
+        "include_null_values": true,
+        "x": 840,
+        "y": 760,
+        "wires": [
+            [
+                "bcabc2a382af5131"
+            ]
+        ]
+    },
+    {
+        "id": "ef4fa1712de1d209",
+        "type": "ui_form",
+        "z": "34aadf24fce843a3",
+        "name": "",
+        "label": "Select Date Range",
+        "group": "108c3fee09587cc4",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "Start Date",
+                "value": "startDate",
+                "type": "date",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "End Date",
+                "value": "endDate",
+                "type": "date",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "startDate": "",
+            "endDate": ""
+        },
+        "submit": "Get Csv File",
+        "cancel": "",
+        "topic": "",
+        "topicType": "str",
+        "splitLayout": false,
+        "x": 200,
+        "y": 2160,
+        "wires": [
+            [
+                "208c17c7ccf2bc29"
+            ]
+        ]
+    },
+    {
+        "id": "653df8dad58c3078",
+        "type": "file",
+        "z": "34aadf24fce843a3",
+        "name": "Write Output",
+        "filename": "H:\\Term-6\\Internet of things\\Project\\output.csv",
+        "filenameType": "str",
+        "appendNewline": false,
+        "createDir": false,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 1090,
+        "y": 2160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "208c17c7ccf2bc29",
+        "type": "function",
+        "z": "34aadf24fce843a3",
+        "name": "Prepare Query",
+        "func": "var startDate = msg.payload.startDate;\nvar endDate = msg.payload.endDate;\n\nstartDate = new Date(startDate).toISOString().split('T')[0];\nendDate = new Date(endDate).toISOString().split('T')[0];\n\nmsg.topic = `SELECT * FROM AirHumidity WHERE type = 'Tomato' AND  dateTime BETWEEN '${startDate}' AND '${endDate}'`;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 2160,
+        "wires": [
+            [
+                "1e0203019b22ebd1"
+            ]
+        ]
+    },
+    {
+        "id": "1e0203019b22ebd1",
+        "type": "mysql",
+        "z": "34aadf24fce843a3",
+        "mydb": "e3fa3322af551f8a",
+        "name": "IOT Database",
+        "x": 640,
+        "y": 2160,
+        "wires": [
+            [
+                "92b018d5356836eb"
+            ]
+        ]
+    },
+    {
+        "id": "92b018d5356836eb",
+        "type": "csv",
+        "z": "34aadf24fce843a3",
+        "name": "",
+        "sep": ",",
+        "hdrin": true,
+        "hdrout": "all",
+        "multi": "one",
+        "ret": "\\r\\n",
+        "temp": "",
+        "skip": "0",
+        "strings": true,
+        "include_empty_strings": true,
+        "include_null_values": true,
+        "x": 860,
+        "y": 2160,
+        "wires": [
+            [
+                "653df8dad58c3078"
+            ]
+        ]
+    },
+    {
+        "id": "0865a677486d9a91",
+        "type": "switch",
+        "z": "34aadf24fce843a3",
+        "name": "",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Very Dry",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Dry",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "High",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Very Humid",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 4,
+        "x": 1050,
+        "y": 300,
+        "wires": [
+            [
+                "2806ad58284d3b9a"
+            ],
+            [
+                "4429a7fa3873ce88"
+            ],
+            [
+                "509838f773520929"
+            ],
+            [
+                "fe8e9702ad3736e5"
+            ]
+        ]
+    },
+    {
+        "id": "2806ad58284d3b9a",
+        "type": "change",
+        "z": "34aadf24fce843a3",
+        "name": "(Cucumber) Very Dry",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "(Cucumber) Very Dry",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Status: Air is very dry",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1240,
+        "y": 140,
+        "wires": [
+            [
+                "d446de9be029a480"
+            ]
+        ]
+    },
+    {
+        "id": "d446de9be029a480",
+        "type": "ui_toast",
+        "z": "34aadf24fce843a3",
+        "position": "bottom right",
+        "displayTime": "3",
+        "highlight": "yellow",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "topic": "",
+        "name": "",
+        "x": 1440,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "4429a7fa3873ce88",
+        "type": "change",
+        "z": "34aadf24fce843a3",
+        "name": "(Cucumber) Dry",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "(Cucumber) Dry",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Status: Air is dry",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1260,
+        "y": 240,
+        "wires": [
+            [
+                "9e5343e3da72316c"
+            ]
+        ]
+    },
+    {
+        "id": "9e5343e3da72316c",
+        "type": "ui_toast",
+        "z": "34aadf24fce843a3",
+        "position": "bottom right",
+        "displayTime": "3",
+        "highlight": "yellow",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "topic": "",
+        "name": "",
+        "x": 1480,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "509838f773520929",
+        "type": "change",
+        "z": "34aadf24fce843a3",
+        "name": "(Cucumber) High",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "(Cucumber) High",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Status: Air humidity is high",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1270,
+        "y": 340,
+        "wires": [
+            [
+                "253afe8c820f0713"
+            ]
+        ]
+    },
+    {
+        "id": "253afe8c820f0713",
+        "type": "ui_toast",
+        "z": "34aadf24fce843a3",
+        "position": "bottom right",
+        "displayTime": "3",
+        "highlight": "yellow",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "topic": "",
+        "name": "",
+        "x": 1480,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "fe8e9702ad3736e5",
+        "type": "change",
+        "z": "34aadf24fce843a3",
+        "name": "(Cucumber) Very Humid",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "(Cucumber) Very Humid",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Status: Air is very humid",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1230,
+        "y": 440,
+        "wires": [
+            [
+                "f7210703e81bc951"
+            ]
+        ]
+    },
+    {
+        "id": "f7210703e81bc951",
+        "type": "ui_toast",
+        "z": "34aadf24fce843a3",
+        "position": "bottom right",
+        "displayTime": "3",
+        "highlight": "yellow",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "topic": "",
+        "name": "",
+        "x": 1500,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "f806e23430b4bc03",
+        "type": "switch",
+        "z": "34aadf24fce843a3",
+        "name": "",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Very Dry",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Dry",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "High",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Very Humid",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 4,
+        "x": 1210,
+        "y": 1800,
+        "wires": [
+            [
+                "7163a72b7e1c998b"
+            ],
+            [
+                "83e402b1fea422ec"
+            ],
+            [
+                "10e40950f7af1a3d"
+            ],
+            [
+                "53b5f4c5bcaf3dfd"
+            ]
+        ]
+    },
+    {
+        "id": "7163a72b7e1c998b",
+        "type": "change",
+        "z": "34aadf24fce843a3",
+        "name": "(Tomato) Very Dry",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "(Tomato) Very Dry",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Status: Air is very dry",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1390,
+        "y": 1640,
+        "wires": [
+            [
+                "8434ee482097a9bd"
+            ]
+        ]
+    },
+    {
+        "id": "83e402b1fea422ec",
+        "type": "change",
+        "z": "34aadf24fce843a3",
+        "name": "(Tomato) Dry",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "(Tomato) Dry",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Status: Air is dry",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1410,
+        "y": 1740,
+        "wires": [
+            [
+                "f3c406cc23899c00"
+            ]
+        ]
+    },
+    {
+        "id": "10e40950f7af1a3d",
+        "type": "change",
+        "z": "34aadf24fce843a3",
+        "name": "(Tomato) High",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "(Tomato) High",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Status: Air humidity is high",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1420,
+        "y": 1840,
+        "wires": [
+            [
+                "85a48759f1697c28"
+            ]
+        ]
+    },
+    {
+        "id": "53b5f4c5bcaf3dfd",
+        "type": "change",
+        "z": "34aadf24fce843a3",
+        "name": "(Tomato) Very Humid",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "(Tomato) Very Humid",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Status: Air is very humid",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1380,
+        "y": 1940,
+        "wires": [
+            [
+                "d1b57329628d2f22"
+            ]
+        ]
+    },
+    {
+        "id": "8434ee482097a9bd",
+        "type": "ui_toast",
+        "z": "34aadf24fce843a3",
+        "position": "bottom right",
+        "displayTime": "3",
+        "highlight": "yellow",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "topic": "",
+        "name": "",
+        "x": 1740,
+        "y": 1640,
+        "wires": []
+    },
+    {
+        "id": "f3c406cc23899c00",
+        "type": "ui_toast",
+        "z": "34aadf24fce843a3",
+        "position": "bottom right",
+        "displayTime": "3",
+        "highlight": "yellow",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "topic": "",
+        "name": "",
+        "x": 1780,
+        "y": 1740,
+        "wires": []
+    },
+    {
+        "id": "85a48759f1697c28",
+        "type": "ui_toast",
+        "z": "34aadf24fce843a3",
+        "position": "bottom right",
+        "displayTime": "3",
+        "highlight": "yellow",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "topic": "",
+        "name": "",
+        "x": 1780,
+        "y": 1840,
+        "wires": []
+    },
+    {
+        "id": "d1b57329628d2f22",
+        "type": "ui_toast",
+        "z": "34aadf24fce843a3",
+        "position": "bottom right",
+        "displayTime": "3",
+        "highlight": "yellow",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "topic": "",
+        "name": "",
+        "x": 1800,
+        "y": 1940,
+        "wires": []
+    },
+    {
+        "id": "77a49822a1cf301b",
+        "type": "jimp-image",
+        "z": "4ea94c24db3e06c9",
+        "name": "Cucumber image",
+        "data": "payload",
+        "dataType": "msg",
+        "ret": "img",
+        "parameter1": "",
+        "parameter1Type": "msg",
+        "parameter2": "",
+        "parameter2Type": "msg",
+        "parameter3": "",
+        "parameter3Type": "msg",
+        "parameter4": "",
+        "parameter4Type": "msg",
+        "parameter5": "",
+        "parameter5Type": "msg",
+        "parameter6": "",
+        "parameter6Type": "msg",
+        "parameter7": "",
+        "parameter7Type": "msg",
+        "parameter8": "",
+        "parameter8Type": "msg",
+        "sendProperty": "payload",
+        "sendPropertyType": "msg",
+        "parameterCount": 0,
+        "jimpFunction": "none",
+        "selectedJimpFunction": {
+            "name": "none",
+            "fn": "none",
+            "description": "Just loads the image.",
+            "parameters": []
+        },
+        "x": 730,
+        "y": 340,
+        "wires": [
+            [
+                "731c01626c46f4a9",
+                "505e7480735384bb"
+            ]
+        ]
+    },
+    {
+        "id": "731c01626c46f4a9",
+        "type": "function",
+        "z": "4ea94c24db3e06c9",
+        "name": "Process Image",
+        "func": "var Jimp = global.get('Jimp');\n\n// تبدیل داده تصویر از رشته به بوفر\nvar imageBuffer = msg.payload;\n\nJimp.read(imageBuffer)\n    .then(image => {\n        // Convert image to grayscale\n        image.grayscale();\n        \n        // Calculate the average brightness\n        let totalBrightness = 0;\n        let count = 0;\n        for (let y = 0; y < image.bitmap.height; y++) {\n            for (let x = 0; x < image.bitmap.width; x++) {\n                let color = Jimp.intToRGBA(image.getPixelColor(x, y));\n                let brightness = (color.r + color.g + color.b) / 3;\n                totalBrightness += brightness;\n                count++;\n            }\n        }\n        \n        let avgBrightness = totalBrightness / count;\n        msg.payload = `Average Brightness: ${avgBrightness}`;\n        node.send(msg);\n    })\n    .catch(err => {\n        node.error(err, msg);\n    });\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 960,
+        "y": 340,
+        "wires": [
+            [
+                "b0ae18d97de19abd",
+                "71778ec569ad20a0"
+            ]
+        ]
+    },
+    {
+        "id": "b0ae18d97de19abd",
+        "type": "debug",
+        "z": "4ea94c24db3e06c9",
+        "name": "Cucumber Image Processing Result",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1330,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "505e7480735384bb",
+        "type": "image viewer",
+        "z": "4ea94c24db3e06c9",
+        "name": "Cucumber Viewer",
+        "width": 160,
+        "data": "payload",
+        "dataType": "msg",
+        "active": true,
+        "x": 930,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c48fbd2c3fe7dc8f",
+        "type": "function",
+        "z": "4ea94c24db3e06c9",
+        "name": "Checking the quality of ambient light",
+        "func": "var data = Number(msg.payload);\n\nif (data >= 40 && data < 70) {\n    msg.payload = \"The ambient light level is adequate.\";\n} else if (data >= 70) {\n    msg.payload = \"The ambient light level is high.\";\n} else {\n    msg.payload = \"The ambient light level is low.\";\n}\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1750,
+        "y": 360,
+        "wires": [
+            [
+                "db63d3c5d49e6b5d",
+                "c6a26efe917c3619"
+            ]
+        ]
+    },
+    {
+        "id": "db63d3c5d49e6b5d",
+        "type": "debug",
+        "z": "4ea94c24db3e06c9",
+        "name": "Checking the quality of ambient light debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2190,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "71778ec569ad20a0",
+        "type": "function",
+        "z": "4ea94c24db3e06c9",
+        "name": "Ambient light in percentage",
+        "func": "// Constant value for converting to lux\nconst constant = 15;\n\n// Extract brightness value from the payload\nvar brightnessStr = msg.payload.split(\":\")[1].trim();\nvar avgBrightness = parseFloat(brightnessStr);\n\n// Calculate illuminance percentage\nlet illuminancePercentage = (avgBrightness / constant) * 10;\n\n// Send message to the user with ambient light level as a percentage\nnode.send({ payload: `Ambient light level: ${illuminancePercentage.toFixed(2)}%` });\n\nmsg.payload = Number(illuminancePercentage.toFixed(0));\nreturn msg;\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1300,
+        "y": 520,
+        "wires": [
+            [
+                "f29e6d137b95b2d0",
+                "0238d3becbe96d8f",
+                "b40823ecc63ba07b",
+                "ce2b53930c83456f",
+                "c48fbd2c3fe7dc8f"
+            ]
+        ]
+    },
+    {
+        "id": "f29e6d137b95b2d0",
+        "type": "debug",
+        "z": "4ea94c24db3e06c9",
+        "name": "Ambient light in percentage debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1780,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "b40823ecc63ba07b",
+        "type": "ui_gauge",
+        "z": "4ea94c24db3e06c9",
+        "name": "Cucumber Gauge",
+        "group": "615c54491b6ec5e7",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Ambient Light Cucumber Gauge",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 1730,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "0238d3becbe96d8f",
+        "type": "ui_chart",
+        "z": "4ea94c24db3e06c9",
+        "name": "Cucumber Chart",
+        "group": "615c54491b6ec5e7",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "label": "Ambient Light Cucumber Chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "100",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "x": 1740,
+        "y": 520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c6a26efe917c3619",
+        "type": "ui_text",
+        "z": "4ea94c24db3e06c9",
+        "group": "615c54491b6ec5e7",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "Cucumber ambient light",
+        "label": "Cucumber ambient light",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "x": 2150,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "dropdown_node",
+        "type": "ui_dropdown",
+        "z": "4ea94c24db3e06c9",
+        "name": "Cucumber Illuminance Percentage",
+        "label": "Select Illuminance Percentage",
+        "tooltip": "",
+        "place": "",
+        "group": "615c54491b6ec5e7",
+        "width": "",
+        "height": "",
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "0-20%",
+                "value": "1",
+                "type": "str"
+            },
+            {
+                "label": "21-40%",
+                "value": "2",
+                "type": "str"
+            },
+            {
+                "label": "41-60%",
+                "value": "3",
+                "type": "str"
+            },
+            {
+                "label": "61-80%",
+                "value": "4",
+                "type": "str"
+            },
+            {
+                "label": "81-100%",
+                "value": "5",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "dropdown",
+        "topicType": "str",
+        "x": 540,
+        "y": 680,
+        "wires": [
+            [
+                "output_node",
+                "c3354a2038d6974e"
+            ]
+        ]
+    },
+    {
+        "id": "output_node",
+        "type": "debug",
+        "z": "4ea94c24db3e06c9",
+        "name": "Check Cucumber Illuminance Percentage",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1000,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "c3354a2038d6974e",
+        "type": "mqtt out",
+        "z": "4ea94c24db3e06c9",
+        "name": "Cucumber Illuminance Percentage",
+        "topic": "cucumberIlluminancePercentage",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "99f5026d45d8fa24",
+        "x": 980,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "986146acdae6603c",
+        "type": "jimp-image",
+        "z": "4ea94c24db3e06c9",
+        "name": "Tomato image",
+        "data": "payload",
+        "dataType": "msg",
+        "ret": "img",
+        "parameter1": "",
+        "parameter1Type": "msg",
+        "parameter2": "",
+        "parameter2Type": "msg",
+        "parameter3": "",
+        "parameter3Type": "msg",
+        "parameter4": "",
+        "parameter4Type": "msg",
+        "parameter5": "",
+        "parameter5Type": "msg",
+        "parameter6": "",
+        "parameter6Type": "msg",
+        "parameter7": "",
+        "parameter7Type": "msg",
+        "parameter8": "",
+        "parameter8Type": "msg",
+        "sendProperty": "payload",
+        "sendPropertyType": "msg",
+        "parameterCount": 0,
+        "jimpFunction": "none",
+        "selectedJimpFunction": {
+            "name": "none",
+            "fn": "none",
+            "description": "Just loads the image.",
+            "parameters": []
+        },
+        "x": 700,
+        "y": 1500,
+        "wires": [
+            [
+                "0debb44007d562e7",
+                "a56ee941dd9c4c24"
+            ]
+        ]
+    },
+    {
+        "id": "0debb44007d562e7",
+        "type": "function",
+        "z": "4ea94c24db3e06c9",
+        "name": "Process Image",
+        "func": "var Jimp = global.get('Jimp');\n\n// تبدیل داده تصویر از رشته به بوفر\nvar imageBuffer = msg.payload;\n\nJimp.read(imageBuffer)\n    .then(image => {\n        // Convert image to grayscale\n        image.grayscale();\n        \n        // Calculate the average brightness\n        let totalBrightness = 0;\n        let count = 0;\n        for (let y = 0; y < image.bitmap.height; y++) {\n            for (let x = 0; x < image.bitmap.width; x++) {\n                let color = Jimp.intToRGBA(image.getPixelColor(x, y));\n                let brightness = (color.r + color.g + color.b) / 3;\n                totalBrightness += brightness;\n                count++;\n            }\n        }\n        \n        let avgBrightness = totalBrightness / count;\n        msg.payload = `Average Brightness: ${avgBrightness}`;\n        node.send(msg);\n    })\n    .catch(err => {\n        node.error(err, msg);\n    });\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 940,
+        "y": 1500,
+        "wires": [
+            [
+                "97375a9b8e6f6f7b",
+                "829c9df2f1cefadf"
+            ]
+        ]
+    },
+    {
+        "id": "97375a9b8e6f6f7b",
+        "type": "debug",
+        "z": "4ea94c24db3e06c9",
+        "name": "Tomato Image Processing Result",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1300,
+        "y": 1500,
+        "wires": []
+    },
+    {
+        "id": "a56ee941dd9c4c24",
+        "type": "image viewer",
+        "z": "4ea94c24db3e06c9",
+        "name": "Tomato Viewer",
+        "width": 160,
+        "data": "payload",
+        "dataType": "msg",
+        "active": true,
+        "x": 900,
+        "y": 1600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "00e1df76d12787fe",
+        "type": "function",
+        "z": "4ea94c24db3e06c9",
+        "name": "Tomato Checking the quality of ambient light",
+        "func": "var data = Number(msg.payload);\n\nif (data >= 40 && data < 70) {\n    msg.payload = \"The ambient light level is adequate.\";\n} else if (data >= 70) {\n    msg.payload = \"The ambient light level is high.\";\n} else {\n    msg.payload = \"The ambient light level is low.\";\n}\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1650,
+        "y": 1560,
+        "wires": [
+            [
+                "51204232a775963d",
+                "bbaa969068cf7313"
+            ]
+        ]
+    },
+    {
+        "id": "51204232a775963d",
+        "type": "debug",
+        "z": "4ea94c24db3e06c9",
+        "name": "Tomato Checking the quality of ambient light debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2090,
+        "y": 1500,
+        "wires": []
+    },
+    {
+        "id": "829c9df2f1cefadf",
+        "type": "function",
+        "z": "4ea94c24db3e06c9",
+        "name": "Ambient light in percentage",
+        "func": "// Constant value for converting to lux\nconst constant = 15;\n\n// Extract brightness value from the payload\nvar brightnessStr = msg.payload.split(\":\")[1].trim();\nvar avgBrightness = parseFloat(brightnessStr);\n\n// Calculate illuminance percentage\nlet illuminancePercentage = (avgBrightness / constant) * 10;\n\n// Send message to the user with ambient light level as a percentage\nnode.send({ payload: `Ambient light level: ${illuminancePercentage.toFixed(2)}%` });\n\nmsg.payload = Number(illuminancePercentage.toFixed(0));\nreturn msg;\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1280,
+        "y": 1680,
+        "wires": [
+            [
+                "99ce39db70022654",
+                "83f352ae91ecb055",
+                "185a6e8992867eaa",
+                "26f0578e65151ff9",
+                "00e1df76d12787fe"
+            ]
+        ]
+    },
+    {
+        "id": "99ce39db70022654",
+        "type": "debug",
+        "z": "4ea94c24db3e06c9",
+        "name": "Tomato Ambient light in percentage debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1700,
+        "y": 1840,
+        "wires": []
+    },
+    {
+        "id": "185a6e8992867eaa",
+        "type": "ui_gauge",
+        "z": "4ea94c24db3e06c9",
+        "name": "Tomato Gauge",
+        "group": "a67d6f2da189a098",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Ambient Light Tomato Gauge",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 1600,
+        "y": 1680,
+        "wires": []
+    },
+    {
+        "id": "83f352ae91ecb055",
+        "type": "ui_chart",
+        "z": "4ea94c24db3e06c9",
+        "name": "Tomato Chart",
+        "group": "a67d6f2da189a098",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "label": "Ambient Light Tomato Chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "100",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "x": 1620,
+        "y": 1760,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bbaa969068cf7313",
+        "type": "ui_text",
+        "z": "4ea94c24db3e06c9",
+        "group": "a67d6f2da189a098",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "Tomato ambient light",
+        "label": "Tomato ambient light",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "x": 2000,
+        "y": 1560,
+        "wires": []
+    },
+    {
+        "id": "41739b6fbca31d08",
+        "type": "ui_dropdown",
+        "z": "4ea94c24db3e06c9",
+        "name": "Tomato Illuminance Percentage",
+        "label": "Select Illuminance Percentage",
+        "tooltip": "",
+        "place": "",
+        "group": "a67d6f2da189a098",
+        "width": "",
+        "height": "",
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "0-20%",
+                "value": "0-20",
+                "type": "str"
+            },
+            {
+                "label": "21-40%",
+                "value": "21-40",
+                "type": "str"
+            },
+            {
+                "label": "41-60%",
+                "value": "41-60",
+                "type": "str"
+            },
+            {
+                "label": "61-80%",
+                "value": "61-80",
+                "type": "str"
+            },
+            {
+                "label": "81-100%",
+                "value": "81-100",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "dropdown",
+        "topicType": "str",
+        "x": 510,
+        "y": 1840,
+        "wires": [
+            [
+                "a845c8d13f3ccb5b",
+                "674e3f8bae6b38ff"
+            ]
+        ]
+    },
+    {
+        "id": "a845c8d13f3ccb5b",
+        "type": "debug",
+        "z": "4ea94c24db3e06c9",
+        "name": "Check Tomato Illuminance Percentage",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 970,
+        "y": 1780,
+        "wires": []
+    },
+    {
+        "id": "674e3f8bae6b38ff",
+        "type": "mqtt out",
+        "z": "4ea94c24db3e06c9",
+        "name": "Tomato Illuminance Percentage",
+        "topic": "tomatoIlluminancePercentage",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "99f5026d45d8fa24",
+        "x": 950,
+        "y": 1900,
+        "wires": []
+    },
+    {
+        "id": "184b2f7b523d7003",
+        "type": "mysql",
+        "z": "4ea94c24db3e06c9",
+        "mydb": "e3fa3322af551f8a",
+        "name": "IOT Database",
+        "x": 1920,
+        "y": 680,
+        "wires": [
+            [
+                "24e9f44386636adf"
+            ]
+        ]
+    },
+    {
+        "id": "ce2b53930c83456f",
+        "type": "function",
+        "z": "4ea94c24db3e06c9",
+        "name": "InsertValue",
+        "func": "var data = Number(msg.payload);\nvar type = \"Cucumber\";\n\nmsg.topic = \"INSERT INTO AmbientLight (type, dateTime, value) VALUES ('\" + type + \"', NOW(), \" + data + \")\";\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1690,
+        "y": 680,
+        "wires": [
+            [
+                "184b2f7b523d7003"
+            ]
+        ]
+    },
+    {
+        "id": "24e9f44386636adf",
+        "type": "debug",
+        "z": "4ea94c24db3e06c9",
+        "name": "Insert Value In Ambient light  Tabel (Cucumber)",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2240,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "32a08d8f336eb149",
+        "type": "mysql",
+        "z": "4ea94c24db3e06c9",
+        "mydb": "e3fa3322af551f8a",
+        "name": "IOT Database",
+        "x": 1870,
+        "y": 1920,
+        "wires": [
+            [
+                "c84038fc16f4e9de"
+            ]
+        ]
+    },
+    {
+        "id": "26f0578e65151ff9",
+        "type": "function",
+        "z": "4ea94c24db3e06c9",
+        "name": "InsertValue",
+        "func": "var data = Number(msg.payload);\nvar dateTime = data.dateTime;\nvar type = \"Tomato\";\n\nmsg.topic = \"INSERT INTO AmbientLight (type, dateTime, value) VALUES ('\" + type + \"', NOW(), \" + data + \")\";\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1600,
+        "y": 1920,
+        "wires": [
+            [
+                "32a08d8f336eb149"
+            ]
+        ]
+    },
+    {
+        "id": "c84038fc16f4e9de",
+        "type": "debug",
+        "z": "4ea94c24db3e06c9",
+        "name": "Insert Value In Ambient light  Tabel (Cucumber)",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2240,
+        "y": 1920,
+        "wires": []
+    },
+    {
+        "id": "547983198b28c0be",
+        "type": "ui_form",
+        "z": "4ea94c24db3e06c9",
+        "name": "",
+        "label": "Select Date Range",
+        "group": "615c54491b6ec5e7",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "Start Date",
+                "value": "startDate",
+                "type": "date",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "End Date",
+                "value": "endDate",
+                "type": "date",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "startDate": "",
+            "endDate": ""
+        },
+        "submit": "Get Csv File",
+        "cancel": "",
+        "topic": "",
+        "topicType": "str",
+        "splitLayout": false,
+        "x": 540,
+        "y": 840,
+        "wires": [
+            [
+                "fe53fe2efc227850"
+            ]
+        ]
+    },
+    {
+        "id": "13599a3391eebf68",
+        "type": "file",
+        "z": "4ea94c24db3e06c9",
+        "name": "Write Output",
+        "filename": "H:\\Term-6\\Internet of things\\Project\\output.csv",
+        "filenameType": "str",
+        "appendNewline": false,
+        "createDir": false,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 1430,
+        "y": 840,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fe53fe2efc227850",
+        "type": "function",
+        "z": "4ea94c24db3e06c9",
+        "name": "Prepare Query",
+        "func": "var startDate = msg.payload.startDate;\nvar endDate = msg.payload.endDate;\n\nstartDate = new Date(startDate).toISOString().split('T')[0];\nendDate = new Date(endDate).toISOString().split('T')[0];\n\nmsg.topic = `SELECT * FROM AmbientLight WHERE type = 'Cucumber' AND  dateTime BETWEEN '${startDate}' AND '${endDate}'`;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 760,
+        "y": 840,
+        "wires": [
+            [
+                "cbe2076445e6a39c"
+            ]
+        ]
+    },
+    {
+        "id": "cbe2076445e6a39c",
+        "type": "mysql",
+        "z": "4ea94c24db3e06c9",
+        "mydb": "e3fa3322af551f8a",
+        "name": "IOT Database",
+        "x": 980,
+        "y": 840,
+        "wires": [
+            [
+                "573838a65dc955f2"
+            ]
+        ]
+    },
+    {
+        "id": "573838a65dc955f2",
+        "type": "csv",
+        "z": "4ea94c24db3e06c9",
+        "name": "",
+        "sep": ",",
+        "hdrin": true,
+        "hdrout": "all",
+        "multi": "one",
+        "ret": "\\r\\n",
+        "temp": "",
+        "skip": "0",
+        "strings": true,
+        "include_empty_strings": true,
+        "include_null_values": true,
+        "x": 1200,
+        "y": 840,
+        "wires": [
+            [
+                "13599a3391eebf68"
+            ]
+        ]
+    },
+    {
+        "id": "aaa816a4f0c47c0f",
+        "type": "ui_form",
+        "z": "4ea94c24db3e06c9",
+        "name": "",
+        "label": "Select Date Range",
+        "group": "a67d6f2da189a098",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "Start Date",
+                "value": "startDate",
+                "type": "date",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "End Date",
+                "value": "endDate",
+                "type": "date",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "startDate": "",
+            "endDate": ""
+        },
+        "submit": "Get Csv File",
+        "cancel": "",
+        "topic": "",
+        "topicType": "str",
+        "splitLayout": false,
+        "x": 490,
+        "y": 2040,
+        "wires": [
+            [
+                "b783cd626bec4032"
+            ]
+        ]
+    },
+    {
+        "id": "2166a0501e5b3b8f",
+        "type": "file",
+        "z": "4ea94c24db3e06c9",
+        "name": "Write Output",
+        "filename": "H:\\Term-6\\Internet of things\\Project\\output.csv",
+        "filenameType": "str",
+        "appendNewline": false,
+        "createDir": false,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 1380,
+        "y": 2040,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b783cd626bec4032",
+        "type": "function",
+        "z": "4ea94c24db3e06c9",
+        "name": "Prepare Query",
+        "func": "var startDate = msg.payload.startDate;\nvar endDate = msg.payload.endDate;\n\nstartDate = new Date(startDate).toISOString().split('T')[0];\nendDate = new Date(endDate).toISOString().split('T')[0];\n\nmsg.topic = `SELECT * FROM AmbientLight WHERE type = 'Tomato' AND  dateTime BETWEEN '${startDate}' AND '${endDate}'`;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 2040,
+        "wires": [
+            [
+                "5632309d467d917d"
+            ]
+        ]
+    },
+    {
+        "id": "5632309d467d917d",
+        "type": "mysql",
+        "z": "4ea94c24db3e06c9",
+        "mydb": "e3fa3322af551f8a",
+        "name": "IOT Database",
+        "x": 930,
+        "y": 2040,
+        "wires": [
+            [
+                "09f9eb7dac239c30"
+            ]
+        ]
+    },
+    {
+        "id": "09f9eb7dac239c30",
+        "type": "csv",
+        "z": "4ea94c24db3e06c9",
+        "name": "",
+        "sep": ",",
+        "hdrin": true,
+        "hdrout": "all",
+        "multi": "one",
+        "ret": "\\r\\n",
+        "temp": "",
+        "skip": "0",
+        "strings": true,
+        "include_empty_strings": true,
+        "include_null_values": true,
+        "x": 1150,
+        "y": 2040,
+        "wires": [
+            [
+                "2166a0501e5b3b8f"
+            ]
+        ]
+    },
+    {
+        "id": "b732ccb3b5fd6e20",
+        "type": "ui_button",
+        "z": "4ea94c24db3e06c9",
+        "name": "Take Photo Cucumber",
+        "group": "615c54491b6ec5e7",
+        "order": 2,
+        "width": "0",
+        "height": "0",
+        "passthru": false,
+        "label": "Take Photo Cucumber",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "topicType": "str",
+        "x": 180,
+        "y": 340,
+        "wires": [
+            [
+                "530f1da4c48fb199"
+            ]
+        ]
+    },
+    {
+        "id": "530f1da4c48fb199",
+        "type": "http request",
+        "z": "4ea94c24db3e06c9",
+        "name": "ESP32-CAM Capture Cucumber",
+        "method": "GET",
+        "ret": "bin",
+        "paytoqs": "ignore",
+        "url": "http://192.168.43.125/capture",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 450,
+        "y": 340,
+        "wires": [
+            [
+                "77a49822a1cf301b"
+            ]
+        ]
+    },
+    {
+        "id": "84b0c344d12fbb62",
+        "type": "ui_button",
+        "z": "4ea94c24db3e06c9",
+        "name": "Take Photo Tomato",
+        "group": "a67d6f2da189a098",
+        "order": 2,
+        "width": "0",
+        "height": "0",
+        "passthru": false,
+        "label": "Take Photo Tomato",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "topicType": "str",
+        "x": 90,
+        "y": 1500,
+        "wires": [
+            [
+                "7488d5b93181a691"
+            ]
+        ]
+    },
+    {
+        "id": "7488d5b93181a691",
+        "type": "http request",
+        "z": "4ea94c24db3e06c9",
+        "name": "ESP32-CAM Capture Tomato",
+        "method": "GET",
+        "ret": "bin",
+        "paytoqs": "ignore",
+        "url": "http://192.168.43.125/capture",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 380,
+        "y": 1500,
+        "wires": [
+            [
+                "986146acdae6603c"
+            ]
+        ]
+    },
+    {
+        "id": "925d40b3de5fba1b",
+        "type": "ui_button",
+        "z": "8774b91761878e43",
+        "d": true,
+        "name": "",
+        "group": "27731b10dcda2da1",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "On",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "1",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 290,
+        "y": 280,
+        "wires": [
+            [
+                "ea6dcd398c8b53a4",
+                "2ef8a6a931c61cfe"
+            ]
+        ]
+    },
+    {
+        "id": "b77614525ba48833",
+        "type": "ui_button",
+        "z": "8774b91761878e43",
+        "d": true,
+        "name": "",
+        "group": "27731b10dcda2da1",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Off",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "2",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 290,
+        "y": 360,
+        "wires": [
+            [
+                "ea6dcd398c8b53a4",
+                "c9bab8e89313174a"
+            ]
+        ]
+    },
+    {
+        "id": "ea6dcd398c8b53a4",
+        "type": "mqtt out",
+        "z": "8774b91761878e43",
+        "name": "",
+        "topic": "LedControl",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "906e3c6177eabd49",
+        "x": 550,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "2ef8a6a931c61cfe",
+        "type": "debug",
+        "z": "8774b91761878e43",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 540,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "c9bab8e89313174a",
+        "type": "debug",
+        "z": "8774b91761878e43",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 540,
+        "y": 420,
+        "wires": []
+    }
+]
